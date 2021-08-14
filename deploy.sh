@@ -8,7 +8,7 @@ echo 'Restarting Go...'
 cd $DIR/golang/
 go build -o bin/webapp .
 sudo systemctl stop web-golang.service
-cp cp bin/webapp /home/isucon/webapp/golang/bin/
+cp bin/webapp /home/isucon/webapp/golang/bin/
 cd $DIR
 sudo systemctl restart web-golang.service
 echo 'Restarted!'
@@ -30,5 +30,5 @@ echo 'Restarted!'
 
 echo 'Rotating files'
 sudo bash -c 'cp /var/log/nginx/access.log /var/log/nginx/access.log.$(date +%s) && echo > /var/log/nginx/access.log'
-sudo bash -c 'cp /tmp/mysql-slow.sql /tmp/mysql-slow.sql.$(date +%s).$(git rev-parse HEAD) && echo > /tmp/mysql-slow.sql'
-echo 'Rotated!'
+sudo bash -c 'cp /var/log/mysql/slow.sql /var/log/mysql/slow.sql.$(date +%s).$(git rev-parse HEAD) && echo > /var/log/mysql/slow.sql'
+echo 'Rotated!
