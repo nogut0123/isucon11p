@@ -5,7 +5,7 @@ source $HOME/.bash_profile $HOME/.bashrc
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
 
 echo 'Restarting Go...'
-cd $DIR/webapp/golang/
+cd $DIR/golang/
 go build -o bin/webapp .
 sudo systemctl stop web-golang.service
 cp cp bin/webapp /home/isucon/webapp/golang/bin/
